@@ -40,7 +40,7 @@ const String settingPage = "<!DOCTYPE html><html>\
     <input type=\"submit\"/>\
   </form>\
   <form action=\"/delay\" method=\"post\">\
-    <input type=\"number\" min=\"0.5\" step=\"0.5\" name=\"delay\" placeholder=\"Delay in milliseconds\"/>\
+    <input type=\"number\" min=\"500\" step=\"500\" name=\"delay\" placeholder=\"Delay in milliseconds\"/>\
     <input type=\"submit\"/>\
   </form>\
 </body>\
@@ -254,7 +254,7 @@ void handleDelay()
   String delayString = server.arg("delay");
   if (delayString.length() > 0)
   {
-    buzzerDelay = min(delayString.toInt(), 500l); 
+    buzzerDelay = max(delayString.toInt(), 500l); 
   }
 
   goHome();
